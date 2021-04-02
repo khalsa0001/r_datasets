@@ -1,0 +1,112 @@
+---
+title: 'R Workshop #2'
+author: "KP"
+date: "3/13/2021"
+output: html_document
+---
+
+## Test
+```{r test}
+testscore <- 86
+class(testscore)
+
+```
+## Vectors
+```{r Vector}
+name <- c('Jarrod', 'Patrik', 'Jillian', 'Grant')
+age <- c(24,24,21,19)
+isMale <- c(TRUE, TRUE, FALSE, TRUE)
+iq <- c(210,415,450,5)
+
+examplevector <- c("Hello", 50, TRUE)
+class(examplevector)
+```
+## List
+```{r list}
+examplelist <- list("Hello", 50, TRUE)
+class(examplelist)
+```
+## Named Vectors
+```{r named vectors}
+temperatures <- c(75, 74, 71, 68, 72, 75, 79)
+temperatures
+names(temperatures) <- c('Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun')
+temperatures
+```
+
+## Operations
+
+```{r Operations}
+temperatures + 4 
+temperatures / 4
+(temperatures - 32) * 5/9
+
+```
+## Matrix
+```{r matrix}
+sampleMatrix <- matrix(data=seq(1,10), nrow=5, ncol=2)
+state <- state.x77
+head(state)
+tail(state)
+```
+## Dataframes
+```{r dataframe}
+state.df <- as.data.frame(state)
+class(state.df)
+```
+## Summary
+
+```{r summary of dataframe}
+eboard.df <- data.frame(name, age, iq, isMale)
+nrow(eboard.df)
+ncol(eboard.df)
+str(eboard.df)
+summary(eboard.df)
+
+```
+## Access Data
+```{r access data}
+
+eboard.df[4,3] <- 500
+
+eboard.df$name
+eboard.df[ ,1]
+
+cailin <- data.frame(name='cailin', age=24, iq=1200, isMale=FALSE)
+eboard.df <- rbind(eboard.df, cailin)
+
+```
+
+## Add Fav Color
+```{r favcolor}
+favcolor <- c('red', 'green', 'blue', 'orange', 'purple')
+eboard.df <- cbind(eboard.df, favcolor)
+eboard.df
+```
+## IQ
+```{r IQ}
+weightedIQ <- eboard.df$iq / 4
+eboard.df <- cbind(eboard.df, weightedIQ)
+eboard.df
+```
+## Add column
+
+```{r }
+eboard.df <- cbind(eboard.df, rep('Cal Poly Pomona', 5))
+eboard.df
+
+```
+
+## ColumnName
+```{r add column name}
+
+colnames(eboard.df)
+colnames(eboard.df)[7] <- "school"
+subset(eboard.df, age>23)
+subset(eboard.df, isMale==TRUE)
+
+```
+
+```{R female subset}
+subset(eboard.df, isMale!=TRUE)
+```
